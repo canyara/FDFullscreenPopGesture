@@ -188,7 +188,7 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
     __weak typeof(self) weakSelf = self;
     _FDViewControllerWillAppearInjectBlock block = ^(UIViewController *viewController, BOOL animated) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        if (strongSelf) {
+        if (strongSelf && self.fd_viewControllerBasedNavigationBarAppearanceEnabled) {
             [strongSelf setNavigationBarHidden:viewController.fd_prefersNavigationBarHidden animated:animated];
         }
     };
